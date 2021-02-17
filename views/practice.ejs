@@ -1,0 +1,59 @@
+<% include partials/header %>
+    <div style="height:100vh;background:white;padding:20px;">
+        <h4 style="margin-top:0px;">Practice<a class="btn-floating blue right"><i class="material-icons">equalizer</i></a><a onclick="$('#modal1').modal('open');" id="newPracticeButton" href="#modal1" style="margin-left:10px" class="btn-floating blue"><i class="material-icons">add</i></a></h4>
+        <div class="divider"></div>
+        <br>
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content" style="padding:0px">
+                            <div style="padding:5px;border-bottom: 1px solid black" class="card-title black-text grey lighten-1">
+                                <h5 style="margin:5px">March 19, 2019<a class="btn-floating blue right"><i class="material-icons">equalizer</i></a></h5>
+                                <h6 style="margin:5px"><strong>Location:</strong> Ottawa</h6>
+                            </div>
+                            <div style="padding:5px">
+                                <table class="center">
+                                    <tr style="border:none">
+                                        <th class="" style="padding:5px 0px">Game 1</th>
+                                        <th class="" style="padding:5px 0px">Game 2</th>
+                                        <th class="" style="padding:5px 0px">Game 3</th>
+                                        <th class="" style="padding:5px 0px">Game 4</th>
+                                        <th class="" style="padding:5px 0px">Game 5</th>
+                                        <th class="" style="padding:5px 0px">Total</th>
+                                        <th class="" style="padding:5px 0px">AVG</th>
+                                    </tr>
+                                    <tr style="border:none">
+                                        <td class="" style="padding:5px 0px">223</td>
+                                        <td class="" style="padding:5px 0px">256</td>
+                                        <td class="" style="padding:5px 0px">212</td>
+                                        <td class="" style="padding:5px 0px">303</td>
+                                        <td class="" style="padding:5px 0px">248</td>
+                                        <td class="" style="padding:5px 0px">1050</td>
+                                        <td class="" style="padding:5px 0px">210</td>
+                                    </tr>
+                                </table>
+                                <p style="padding: 5px 0px;border-top: 1px solid black"><strong>Notes:</strong><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas varius ipsum, eu volutpat felis ultrices a. Nam vel odio sit amet metus porta fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla in semper elit.</p>
+                            </div>
+                            <div class="card-action black right-align" style="padding:10px;">
+                                <a class="white-text" href="#">Edit</a>
+                                <a class="white-text" href="#">Delete</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Structure -->
+ <div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
+<% include partials/footer %>
+

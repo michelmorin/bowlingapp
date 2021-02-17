@@ -1,0 +1,77 @@
+<% include partials/header %>
+<div class="container ">    
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l9 offset-l2 xl7 offset-xl3 ">
+            <div class="card">
+                <div class="card-content">
+                    <h4 style="margin-top:0px;text-align:center">Login with</h4>
+                    <div class="divider"></div>
+                    <br>
+                    <form action="/login" method="post">
+                        <div style="margin-bottom:30px" class="center">
+                            <a style="margin-bottom:5px" class="btn red darken-1" href="/auth/google"><i class="fab fa-google"></i> Google</a>
+                            <a style="margin-bottom:5px" class="btn blue darken-4" href="/auth/facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        </div>
+                        <div class='hr-or'></div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fas fa-key prefix"></i>
+                                <label for="username">Username</label>
+                                <input type="text" maxlength="50" name="username" id="username" required autofocus
+                                <% if (sessionFlash && (sessionFlash.usernameErrorMsg) ) { %>
+                                    class="invalid" 
+                                <% } else { %>
+                                    class="validate" 
+                                <% } %>
+                                value="<% if (sessionFlash && (sessionFlash.username) ) { %><%= sessionFlash.username %><% } %>"/>
+
+                                <% if (sessionFlash && (sessionFlash.usernameErrorMsg) ) { %>
+                                    <span class="helper-text" data-error="<%= sessionFlash.usernameErrorMsg %>"></span>
+                                <% } %> 
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-lock prefix"></i>
+                                <label for="password">Password </label>
+                                <input type="password" minlength="8" maxlength="50" name="password" id="password" required 
+                                <% if (sessionFlash && (sessionFlash.passwordErrorMsg) ) { %>
+                                    class="invalid" />
+                                <% } else { %>
+                                        class="validate" />
+                                <% } %>
+                                <% if (sessionFlash && (sessionFlash.passwordErrorMsg) ) { %>
+                                        <span class="helper-text" data-error="<%= sessionFlash.passwordErrorMsg %>"></span>
+                                <% } %>
+                            </div>
+                            <div class="center col s12" style="margin-bottom:20px">
+                                <button style="width: 100%" class="btn btn-large waves-effect waves-light blue" type="submit">Login</button>
+                            </div>
+                            <div class="col s12">
+                                <!--<div class="left">
+                                    <form action="#">
+                                        <p>
+                                            <label>
+                                            <input type="checkbox" />
+                                            <span>Remember Me</span>
+                                            </label>
+                                        </p>
+                                    </form>
+                                </div>-->
+                                <div class="right">
+                                    <a href="#" class="forgot-password">Forgot password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divider"></div>
+                    <br>
+                    <div class="center">
+                        Don't have an account? <a href="/register">Sign up here</a>
+                    </div>  
+                </div> 
+            </div>    
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bowling App</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <!-- Bowling App Stylesheet -->
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <!-- Top NAVBAR -->
+        <header>
+          <div class="navbar-fixed">
+            <nav>
+              <div class="nav-wrapper deep-orange darken-4">
+                <a href="/" style="margin-left:10px;" class="brand-logo"><img style="margin-top:7px;margin-left:20px;margin-right: 8px" class="filter-white hide-on-small-only" src="/img/bowling.svg" width="50px" height="50px"/><span style="vertical-align: top">Bowling App</span></a>
+                <a href="#" data-target="sidenav" class="sidenav-trigger"><i style="font-size: 40px" class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                  <% if (user) { %>
+                    <li><a style="font-size: 20px;margin-right:20px;" class="dropdown-trigger" href="/user/<%= user._id %>" data-target="dropdown1"><img class="rounded-image" src="<%= user.image %>" style="vertical-align: middle;margin-right:8px;" alt="" width="30px" height="30px"><%= user.name %></a></li>
+                  <% } else {%>
+                    <li><a style="font-size: 20px;margin-right:20px;" href="/login"><span><i style="vertical-align:bottom;margin-right:8px;" class="fas fa-sign-in-alt"></i></span>Login</a></li>
+                  <% } %>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </header>
+            
+        <!-- LEFT SIDEBAR	 -->
+          <ul id="sidenav" class="sidenav sidenav-fixed">
+              <% if (user) { %>
+                <li>
+                  <div class="center" style="background: white;margin-top: 10px">
+                    <a href="/user/<%= user._id %>"><img width="150px" height="150px" class="circle" src="<%= user.image %>"></a>
+                    <a href="/user/<%= user._id %>"><h6 style="margin-top: 0px;margin-bottom:20px" class="center black-text"><%= user.name %></h6></a>
+                  </div>
+                </li>
+                <li class="hide-on-large-only"><a style="font-size: 20px" href="/user/<%= user._id %>/edit"><i class="material-icons">edit</i>Edit Profile</a></li>
+                <li class="hide-on-large-only"><a style="font-size: 20px" href="/auth/logout"><i style="vertical-align: bottom;" class="fas fa-sign-out-alt"></i>Logout</a></li>
+                <div class="divider"></div>
+              <% } else {%>
+                <li><a style="font-size: 20px" href="/login"><i style="vertical-align: bottom;" class="fas fa-sign-in-alt"></i>Login</a></li>
+              <% } %>
+              <% if (user) { %>
+                <li><a style="font-size: 20px" href="/user/<%= user._id %>/league"><i class="material-icons">group</i>League</a></li>
+                <li><a style="font-size: 20px" href="/user/<%= user._id %>/tournament"><i class="material-icons">directions_run</i>Tournament</a></li>
+                <li><a style="font-size: 20px" href="/user/<%= user._id %>/practice"><i class="material-icons">fitness_center</i>Practice</a></li>                
+              <% } %>
+          </ul>
+
+          <!-- TOP NAVBAR USER DROPDOWN-->
+          <% if (user) { %>
+            <ul id="dropdown1" class="dropdown-content">
+              <li><a style="color:black" href="/user/<%= user._id %>/edit"><i class="material-icons">edit</i>Edit Profile</a></li>
+              <li><a style="color:black" href="/auth/logout"><i style="vertical-align: bottom;" class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+          <% } %>
+
+          <main>
+    
+

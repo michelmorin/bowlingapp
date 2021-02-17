@@ -1,0 +1,95 @@
+<% include partials/header %>
+<div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l3 xl5 offset-xl3">
+        <div class="card">
+            <div class="card-content" style="padding-bottom:1px">
+                <h4 style="margin-top:0px;text-align:center">Edit Profile</h4>
+                <div class="divider"></div>
+                <br>
+                <form action="/user/<%= user._id %>?_method=PUT" method="post">
+                    <div class="row">
+                        <div class="center col s12">
+                            <img class="rounded-image" src="<%= user.image %>" style="vertical-align: middle;" alt="" width="200px" height="200px">
+                            <div><a href="/user/<%= user._id %>/image" style="width: 100%" class="blue-text"><i class="fas fa-portrait prefix"></i> Change Image</a></div>
+                        </div>
+                         <!-- Only show for local acounts-->
+                         <% if (user.googleID === undefined && user.facebookID === undefined) { %>
+                            <div class="input-field col s12">
+                                <i class="fas fa-key prefix"></i>
+                                <label for="username">Username</label>
+                                <input type="text" class="validate" name="name" id="username" value="<%= user.username %>" disabled/>
+                                <span class="helper-text">Usernames cannot be modified</span>
+                            </div>
+                        <% } %>
+                        <div class="input-field col s12">
+                            <i class="fas fa-user prefix"></i>
+                            <label for="name">Name</label>
+                            <input type="text" maxlength="50" name="name" id="name" required autofocus
+                            <% if (sessionFlash && (sessionFlash.nameErrorMsg) ) { %>
+                                class="invalid" 
+                            <% } else { %>
+                                class="validate" 
+                            <% } %>
+                                value="<%= user.name %>"/>
+                            <% if (sessionFlash && (sessionFlash.nameErrorMsg) ) { %>
+                                <span class="helper-text" data-error="<%= sessionFlash.nameErrorMsg %>"></span>
+                            <% } %> 
+                        </div>
+                        <% if (user.googleID === undefined && user.facebookID === undefined) { %>
+                        <div class="input-field col s12" style="margin-bottom:20px">
+                                <i class="fas fa-envelope prefix"></i>
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" id="email" 
+                            <% if (sessionFlash && (sessionFlash.emailErrorMsg) ) { %>
+                                class="invalid" 
+                            <% } else { %>
+                                    class="validate" 
+                            <% } %>
+                                value="<%= user.email %>"/>
+                            <% if (sessionFlash && (sessionFlash.email) ) { %>
+                                    <span class="helper-text" data-error="<%= sessionFlash.emailErrorMsg %>"></span>
+                            <% } %>
+                            <span class="helper-text">Optional:  Required to request forgotten password</span>
+                        </div>
+                        <% } %>
+                        <!-- <div class="input-field col s12" style="margin-bottom:20px">
+                            <i class="fas fa-camera prefix"></i>
+                            <label for="image">Image URL</label>
+                            <input type="text" class="validate" name="image" id="image" value="<%= user.image %>"/>
+                        </div> -->
+
+                        <!-- Only show for local acounts-->
+                        <% if (user.googleID === undefined && user.facebookID === undefined) { %>
+                            <div class="center col s12" style="margin-top:20px">
+                                <a href="/user/<%= user._id %>/password" style="width: 100%" class="blue-text"><i class="fas fa-key prefix"></i> Change Password</a>
+                            </div>
+                            <!-- <div class="input-field col s12">
+                                <i class="fas fa-lock prefix"></i>
+                                <label for="password">Password </label>
+                                <input type="password" class="validate" name="password" id="password"/>
+                                <span id="password1-edit-error" class="helper-text" data-error="">Password Rule: at least 8 characters, 1 number, 1 uppercase letter and 1 lowercase letter</span>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-lock prefix"></i>
+                                <label for="password2">Confirm Password </label>
+                                <input type="password" class="validate" name="password2" id="password"/>
+                            </div>-->
+                        <% } %>
+                        
+                        <div class="center col s12" style="margin-bottom:20px;margin-top:40px">
+                            <button style="width: 100%" class="btn btn-large waves-effect waves-light blue" type="submit">Save</button>
+                        </div>
+                        <div class="center col s12">
+                            <a href="/user/<%= user._id %>" style="width: 100%" class="btn btn-large waves-effect waves-light black">Cancel</a>
+                        </div>
+                        <div class="center col s12" style="margin-top:20px">
+                            <a href="/user/<%= user._id %>/delete" style="width: 100%" class="red-text"><i class="fas fa-trash-alt prefix"></i> Delete Account</a>
+                        </div>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+</div>
+<% include partials/footer %>
+

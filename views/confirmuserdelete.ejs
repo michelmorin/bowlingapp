@@ -1,0 +1,28 @@
+<% include partials/header %>
+<div class="row">
+    <div class="col s10 offset-s1 l6 offset-l3">
+        <div class="card">
+            <div class="card-content">
+                <h4 style="text-align:center">Account Deletion Confirmation</h4>
+                <div class="divider"></div>
+                <br>
+                <form action="/user/<%= user._id %>?_method=DELETE" method="post">
+                    <div class="row">
+                        <div class="col s12" style="margin-bottom:20px">
+                            <h5>Are you sure you want to delete your account?</h5>
+                            <h5>Click on the Confirm button below to Permanently delete your account</h5>
+                        </div>
+                        <div class="center col s12" style="margin-bottom:20px;margin-top:40px">
+                            <button style="width: 100%" class="btn btn-large waves-effect waves-light red" type="submit">Confirm</button>
+                        </div>
+                        <div class="center col s12">
+                            <a href="/user/<%= user._id %>/edit" style="width: 100%" class="btn btn-large waves-effect waves-light black">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+</div>
+<% include partials/footer %>
+

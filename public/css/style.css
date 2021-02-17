@@ -1,0 +1,63 @@
+body {
+	background: lightgray;
+}
+
+main,
+footer {
+	padding-left: 300px;
+}
+
+#sidenav {
+	margin-top: 64px;
+}
+
+@media only screen and (max-width: 992px) {
+	main,
+	footer {
+		padding-left: 0;
+	}
+}
+
+.filter-white {
+	filter: invert(99%) sepia(1%) saturate(101%) hue-rotate(273deg) brightness(116%) contrast(100%);
+}
+
+img.rounded-image {
+	border-radius: 50%;
+}
+
+div.hr-or {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eee;
+	text-align: center;
+	height: 0px;
+	line-height: 0px;
+}
+
+div.hr-or:before {
+	content: ' OR ';
+	background-color: #fff;
+}
+
+.icon_style {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 20px;
+	color: white;
+	cursor: pointer;
+}
+
+.alert-box {
+	padding: 10px;
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 993px) {
+	.fullvh {
+		height: 100vh;
+	}
+}
